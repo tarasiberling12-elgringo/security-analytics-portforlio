@@ -1,0 +1,3 @@
+file = open("security_logs.csv", "w")
+file.write("username,status,ip\nadmin,FAILED,192.168.1.10\njohn,SUCCESS,192.168.1.11\nroot,FAILED,192.168.1.12\nguest,SUCCESS,192.168.1.13\nadmin,FAILED,192.168.1.14\nsarah,SUCCESS,192.168.1.15\nroot,FAILED,192.168.1.16")
+file.close()
