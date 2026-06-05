@@ -1,0 +1,14 @@
+with open("alerts_report.txt", "w") as report:
+
+    report.write("=== SECURITY ALERT REPORT ===\n\n")
+
+    report.write("High-Risk Users:\n")
+    for user, count in failed_attempts.items():
+        if count >= 2:
+            report.write(f"ALERT: {user} has {count} failed login attempts\n")
+
+    report.write("\nSuspicious IP Addresses:\n")
+    for ip, count in high_risk_ips.items():
+        report.write(f"WARNING: {ip} triggered {count} high-risk events\n")
+
+print("alerts_report.txt generated successfully")

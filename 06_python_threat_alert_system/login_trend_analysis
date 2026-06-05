@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+df = pd.read_csv("security_logs.csv")
+
+# Convert timestamp column
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+# Group activity over time
+trend = df.groupby("timestamp")["attempts"].sum()
+
+print("=== LOGIN ACTIVITY TREND ===")
+print(trend)
+
+# Plot trend
+plt.figure(figsize=(8,5))
+plt.plot(trend.index, trend.values)
+
+plt.title("Login Activity Trend Over Time")
+plt.xlabel("Timestamp")
+plt.ylabel("Total Login Attempts")
+
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+plt.show()
