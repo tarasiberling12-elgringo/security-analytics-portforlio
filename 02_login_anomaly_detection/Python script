@@ -1,0 +1,13 @@
+import math
+
+attempts = [2, 3, 4, 5, 6, 7, 20]
+mean = sum(attempts) / len(attempts)
+variance = sum((x - mean) ** 2 for x in attempts) / len(attempts)
+std_dev = math.sqrt(variance)
+
+for value in attempts:
+    z_score = (value - mean) / std_dev
+    if z_score > 2:
+        print(f"Anomaly detected: {value} (Z-score: {round(z_score, 2)})")
+    else:
+        print(f"Normal: {value} (Z-score: {round(z_score, 2)})")
